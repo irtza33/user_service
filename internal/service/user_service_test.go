@@ -6,7 +6,7 @@ import (
 
     "github.com/stretchr/testify/mock"
     "github.com/stretchr/testify/assert"
-    pb "github.com/irtza33/user_service/proto/user"
+    pb "user_service/proto/user"
 )
 
 type mockUserStore struct {

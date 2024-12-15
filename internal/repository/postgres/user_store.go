@@ -6,8 +6,8 @@ import (
     "fmt"
     "log"
 
-    "github.com/irtza33/user_service/internal/domain"
-    "github.com/irtza33/user_service/internal/repository"
+    "user_service/internal/domain"
+    "user_service/internal/repository"
 )
 
 type UserStore interface {

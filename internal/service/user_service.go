@@ -5,9 +5,9 @@ import (
     "errors"
     "log"
 
-    "github.com/irtza33/user_service/internal/repository"
-    "github.com/irtza33/user_service/pkg/logger"
-    "github.com/irtza33/user_service/proto/user"
+    "user_service/internal/repository"
+    "user_service/pkg/logger"
+    "user_service/proto/user"
 )
 
 type UserService struct {

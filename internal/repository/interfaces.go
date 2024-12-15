@@ -2,7 +2,7 @@ package repository
 
 import (
     "context"
-    "github.com/irtza33/user_service/internal/domain"
+    "user_service/internal/domain"
 )
 
 type UserStore interface {

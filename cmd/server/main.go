@@ -5,11 +5,11 @@ import (
     "net"
 
     "google.golang.org/grpc"
-    "github.com/irtza33/user_service/internal/config"
-    "github.com/irtza33/user_service/internal/service"
-    "github.com/irtza33/user_service/pkg/logger"
-    "github.com/irtza33/user_service/pkg/database"
-    "github.com/irtza33/user_service/proto/user"
+    "user_service/internal/config"
+    "user_service/internal/service"
+    "user_service/pkg/logger"
+    "user_service/pkg/database"
+    "user_service/proto/user"
 )
 
 func main() {
