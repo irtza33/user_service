@@ -1,28 +1,42 @@
 package config
 
 import (
-    "log"
     "os"
 )
 
 type Config struct {
-    DatabaseURL string
-    LogLevel    string
+    Database DatabaseConfig
+    Server   ServerConfig
+    LogLevel string
+}
+
+type DatabaseConfig struct {
+    Host     string
+    Port     string
+    User     string
+    Password string
+    DBName   string
 }
 
 func LoadConfig() *Config {
-    dbURL := os.Getenv("DATABASE_URL")
-    if dbURL == "" {
-        log.Fatal("DATABASE_URL environment variable is required")
-    }
-
-    logLevel := os.Getenv("LOG_LEVEL")
-    if logLevel == "" {
-        logLevel = "info" // default log level
-    }
-
     return &Config{
-        DatabaseURL: dbURL,
-        LogLevel:    logLevel,
+        Database: DatabaseConfig{
+            Host:     getEnv("DB_HOST", "localhost"),
+            Port:     getEnv("DB_PORT", "5432"),
+            User:     getEnv("DB_USER", "postgres"),
+            Password: getEnv("DB_PASSWORD", "postgres"),
+            DBName:   getEnv("DB_NAME", "userdb"),
+        },
+        Server: ServerConfig{
+            Address: getEnv("SERVER_ADDRESS", ":50051"),
+        },
+        LogLevel: getEnv("LOG_LEVEL", "info"),
     }
+}
+
+func getEnv(key, defaultValue string) string {
+    if value, exists := os.LookupEnv(key); exists {
+        return value
+    }
+    return defaultValue
 }
