@@ -1,5 +1,12 @@
+package repository
+
+import (
+    "context"
+    "github.com/irtza33/user_service/internal/domain"
+)
+
 type UserStore interface {
-    GetUser(userID int) (string, error)
-    CreateUser(name string) (int, error)
-    DeleteUser(userID int) (bool, error)
+    GetUser(ctx context.Context, id int32) (*domain.User, error)
+    CreateUser(ctx context.Context, name string) (int32, error)
+    DeleteUser(ctx context.Context, id int32) error
 }
